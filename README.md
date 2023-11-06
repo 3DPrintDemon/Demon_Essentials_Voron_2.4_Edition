@@ -64,7 +64,7 @@ The rest of the macros are simple single click automations for running a series 
 
 ### FOR ANY FILE SPECIFIC INSTRUCTIONS & VARIABLES PLEASE CHECK THE FILE TEXT!
 
-**Don’t just install & run them & wonder why they don’t work! They will NEED setting up once on your system. Damage to your machine may result if the macros are run without the prerequisites or without the correct setup before first use!** 
+**Don’t just install & run them & wonder why they don’t work! They WILL need setting up once on your system. Damage to your machine may result if the macros are run without the prerequisites or without the correct setup before first use!** 
 
 You will need to add some lines to your slicer's `Start G-code` & `End G-code` boxes to get the `PRINT_START` macro to work correctly. 
 
