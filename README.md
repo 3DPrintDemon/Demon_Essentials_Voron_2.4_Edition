@@ -137,7 +137,8 @@ This will give you full macro control of your power relay unit via the `PRINT_EN
 
 Then once you’ve done that you’ll need to add a Chamber thermistor to your machine if you haven’t already.
 To set this thermistor to be used as both a fan controller for cooling the Chamber & a sensor for the system to use add these to your printer.cfg adding the same board pin used & the sensor type your’e using.
-••NOTE: if you’re using a single thermistor these should be the same for all 3 sections below. If you have 2 thermistors you can omit the `[duplicate_pin_override]` section and use a different thermistor for each section. But just one is fine.
+
+**NOTE: if you’re using a single thermistor these should be the same for all 3 sections below. If you have 2 thermistors you can omit the `[duplicate_pin_override]` section and use a different thermistor for each section. But just one is fine.**
 ```
 # This single pin will be used by both [temperature_fan chamber] as well as [temperature_sensor Chamber_Temp]
 [duplicate_pin_override]
