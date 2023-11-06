@@ -90,7 +90,7 @@ Then you will need to set your instance to be able to control your Pi’s GPIO p
 ```
 sudo nano /boot/config.txt
 ```
-Then near the bottom of the file at the end of the first section & in the space ABOVE (not in) the start of the [CM4] section paste in:
+Then near the bottom of the file at the end of the first section & in the space BEFORE the start of the [CM4] section paste in:
 ```
 gpio=16=op,dh # Example GPIO pin, chose a GPIO pin to control power device’s PSon pin
 ```
