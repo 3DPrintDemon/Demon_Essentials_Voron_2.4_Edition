@@ -169,7 +169,7 @@ max_temp: 70
 gcode_id: CH
 ```
 
-Here is the required macro for your `macros.cfg` to run the filament sensor. The filament sensor check can be enabled & disabled in the `_START_VARIABLES` marco
+Here is the required macro for your `macros.cfg` to run the filament sensor. The filament sensor check can be enabled & disabled in the `_START_VARIABLES` marco if you dont have one or dont want to perform the check at the start of the print.
 ```
 [filament_switch_sensor filament_sensor]
 switch_pin: ### <<<<<< Insert board pin for sensor
