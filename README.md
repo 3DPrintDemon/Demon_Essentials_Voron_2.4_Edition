@@ -1,5 +1,5 @@
 
-# WELCOME TO 3DPRINTDEMON 
+# WELCOME TO 3DPrintDemon 
 
 # THE DEVILISHLY GOOD “DEMON ADAPTIVE VORON 2.4 (DAV) MACRO PACK”!!
 ## Made to make your printing life easier & your printer SMARTER!
@@ -27,7 +27,7 @@ If you feel you’d like to support my efforts & help to enable me to continue s
 ## Introduction
 
 These macros are smart & have adaptive properties & will shape themselves to what you’re printing. 
-For example the `PRINT_START` macro knows if your printer is already homed so wont home it again, & can automatically shape itself to simple things like your printer’s bed size, what temperatures you’re printing at, & it even knows the current file’s first layer height so it’ll print the purge lines at the same height! It can automatically load the correct mesh for the temperature of your print, as your bed will slightly change shape the hotter it gets. 
+For example the `PRINT_START` macro knows if your printer is already homed so wont home it again, & can not only automatically shape itself to simple things like your printer’s bed size & what temperatures you’re printing at, but it will even know the current file’s first layer height so it’ll print the purge lines at the same height! Plus it can automatically choose & load the correct mesh for the temperature of your print, as your bed will slightly change shape the hotter it gets. 
 
 Not only that but it will choose the correct settings for your chamber cooling system, & it will even check to see if you have filament loaded before starting a print! …We’ve all done that one haven’t we, be honest!!
 
@@ -35,7 +35,7 @@ Also it can decide if your chamber needs to be heat soaked or not before the pri
 
 You have all this plus step by step adaptive on screen messages on any Mainsail web interface & KlipperScreen system so you know exactly what your machine is deciding to do at any time! Some macros can be customised by changing the settings in the macro button options before you manually call the macro in the Mainsail or KlipperScreen interfaces!
 
-It doesn't end there, but all these features are user customisable within the Macro Variables sections inside the files! Some functions can even be totally deactivated entirely & bypassed with a simple changing an option from `True` to `False`! This is very useful if your printer doesn’t have the hardware components installed at this time but leaves the configuration easily customisable with a few keystrokes in the future if you want to add to your machine!
+It doesn't end there, as all these features are user customisable within the Macro Variables sections inside the files! Some functions can be totally deactivated entirely & bypassed with a simple changing an option from `True` to `False`! This is very useful if your printer doesn’t have the hardware components installed at this time but leaves the configuration easily customisable with a few keystrokes in the future if you want to add to your machine!
 
 With the new `_GOODNIGHT` macro you can even flick a GUI switch in Mainsail to let the printer know you want it to auto power down after it’s finished printing!! 
 This can be done at ANY point during the print! You can even change your mind & cancel the auto shutdown at any point before the print completes!
@@ -112,7 +112,7 @@ gpio=16=op,dh # Example GPIO pin, chose a GPIO pin to control power device’s P
 ```
 Then use the commands at the bottom of the screen to exit & save the file.
 
-This will make sure that the GPIO pin you will use for the relay’s `PSon` pin is automatically pulled “high” when the Pi is first turned on at the beginning of the host boot sequence. This in turn should keep your relay from automatically opening & shutting the printer down while the Pi is booting. It does this as at boot the power relay is not seeing a ‘keep switched on’ signal from the Pi, & it needs that signal. 
+This will make sure that the GPIO pin you will use for the relay’s `PSon` pin is automatically pulled “high” when the Pi is first turned on at the beginning of the host boot sequence. This in turn should keep your relay from automatically opening & shutting the printer down while the Pi is booting. It does this at boot because the power relay is not seeing the ‘keep switched on’ signal from the Pi, & it needs that signal. 
 Trust me it is very annoying if you don’t do this!
 
 You will then need to modify your `Moonraker.conf` file by adding these…
@@ -123,7 +123,7 @@ pin:gpio16 # Example GPIO pin, you can choose your own here
 initial_state:on
 off_when_shutdown: True
 locked_while_printing: True
-restart_klipper_when_powered: True
+restart_klipper_when_powered: False
 restart_delay: 2
 bound_services:
 
@@ -136,7 +136,7 @@ restart_klipper_when_powered: True
 restart_delay: 2
 Timer:2
 ```
-You need these two pins as the BTT relay firmware requires a reset command while the `PSon` pin is high. If this is not the case & the `PSon` pin is low (off) & you hit reset the relay will trip out again after 8 seconds. This is noraml. The `PSon` pin must be high (on) when the reset is pressed.
+You need these two pins as the BTT relay firmware requires a reset command while the `PSon` pin is high. If this is not the case & the `PSon` pin is low (off) & you hit reset the relay power up but trip out again after 8 seconds. This is normal. The `PSon` pin must be high (on) when the reset is pressed.
 
 After that add this macro to your `macros.cfg`
 ```
@@ -150,12 +150,12 @@ Lastly this is used by the `PRINT_END` macro to select the Auto Shutdown feature
 [output_pin PRINTER_AUTO_OFF]
 pin: ### <<<<<< Insert unused board pin for state change only, monitored by system
 ```
-This will give you full macro control of your power relay unit via the `PRINT_END` & `_GOODNIGHT` macros.
+This will give you full control of your power relay unit via the GUI Switch & the `PRINT_END` & `_GOODNIGHT` macros.
 
 ## Chamber Monitoring & Fan Control
 
 Then once you’ve done that you’ll need to add a Chamber thermistor to your machine if you haven’t already.
-To set this thermistor to be used as both a fan controller for cooling the Chamber & a sensor for the system to use add these to your printer.cfg adding the same board pin used & the sensor type your’e using.
+To set this single thermistor to be used as both a fan controller for cooling the Chamber & a regular sensor for the system to use add these sections to your printer.cfg, adding the same board pin & the sensor type your’e using.
 
 **NOTE: if you’re using a single thermistor these should be the same for all 3 sections below. If you have 2 thermistors you can omit the `[duplicate_pin_override]` section and use a different thermistor for each section. But just one is fine.**
 ```
@@ -189,7 +189,7 @@ gcode_id: CH
 ```
 
 ## Filament Sensor
-This must be added to your `printer.cfg` file to run the filament sensor. The filament sensor check in the `PRINT_START` macro can then be enabled & disabled in the `_START_VARIABLES` marco if you dont have one or dont want to perform the check at the start of the print.
+If you have or are going to install a filament sensor this must be added to your `printer.cfg` file to run the filament sensor. The filament runout check in the `PRINT_START` macro can then be enabled & disabled in the `_START_VARIABLES` marco if you dont have one or dont want to perform the check at the start of the print.
 ```
 [filament_switch_sensor filament_sensor]
 switch_pin: ### <<<<<< Insert board pin for sensor
