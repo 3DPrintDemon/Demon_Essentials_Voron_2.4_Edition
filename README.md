@@ -88,7 +88,7 @@ To make use of the `_GOODNIGHT` post print auto shutdown macro you must enable y
 
 - https://github.com/Klipper3d/klipper/blob/master/docs/RPi_microcontroller.md
 
-After you've followed the process in that link be sure that this line is added to your `printer.cfg` file.
+After you've followed the process in that link be sure that this is added to your `printer.cfg` file.
 ```
 [mcu host]
 serial: /tmp/klipper_host_mcu
