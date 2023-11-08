@@ -238,7 +238,7 @@ You can also add your chamber temp to the menubar in KlipperScreen, this to your
 titlebar_items: chamber
 ```
 
-## Fin
+## Fin...
 If you made it to the end here congrats! 
 
-I hope this macro pack makes a nice difference to your printing life, dont forget, if you feel its valuable enough use please consider hitting that "sponser this project" button & buying me a beer/coffee. Thank you & happy printing!!
+I hope this macro pack makes a nice difference to your printing life, dont forget, if you feel its valuable enough to use please consider hitting that "sponser this project" button & buying me a beer/coffee. Its always very much appreciated. Thank you & happy printing!!
