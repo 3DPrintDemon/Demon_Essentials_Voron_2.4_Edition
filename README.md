@@ -88,6 +88,12 @@ To make use of the `_GOODNIGHT` post print auto shutdown macro you must enable y
 
 - https://github.com/Klipper3d/klipper/blob/master/docs/RPi_microcontroller.md
 
+After you've followed the process in that link be sure that this line is added to your `printer.cfg` file.
+```
+[mcu host]
+serial: /tmp/klipper_host_mcu
+```
+
 ## Word of warning! Adding a power control device like a power shutdown relay can sometimes involve working with & modifying your printer’s wiring that runs on mains level voltage!  This can be extremely dangerous with a definite risk of serious injury, fire, loss of property & even death! You have been warned. I accept no liability or responsibility for any loss, death or injury caused directly or indirectly by you or anyone else attempting this! This is all on you, attempt implementation ENTIRELY AT YOUR OWN RISK!
 
 Example below for using the BTT Power Relay v1.2
