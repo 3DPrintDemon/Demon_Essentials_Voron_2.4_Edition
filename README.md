@@ -144,7 +144,7 @@ initial_state:on
 off_when_shutdown: True
 locked_while_printing: True
 restart_klipper_when_powered: False
-restart_delay: 2
+# restart_delay: 2
 bound_services:
 
 [power Reset Power]
