@@ -96,6 +96,8 @@ serial: /tmp/klipper_host_mcu
 
 ## Word of warning! Adding a power control device like a power shutdown relay can sometimes involve working with & modifying your printer’s wiring that runs on mains level voltage!  This can be extremely dangerous with a definite risk of serious injury, fire, loss of property & even death! You have been warned. I accept no liability or responsibility for any loss, death or injury caused directly or indirectly by you or anyone else attempting this! This is all on you, attempt implementation ENTIRELY AT YOUR OWN RISK!
 
+## Connections
+
 Example below for using the BTT Power Relay v1.2
 
 See the install instructions for this product on the BTT Github! 
@@ -108,7 +110,11 @@ This link is far more helpful!
 
 - https://www.youtube.com/watch?v=5wJff-hY90s
 
-Then you will need to set your instance to be able to control your Pi’s GPIO pins as mentioned previously in this document. You need to choose which 2 pins to use. Then you need to SSH into your pi & run:
+You will need ensure that you have set your instance to be able to control your Pi’s GPIO pins as mentioned previously in this document. You then need to choose which 2 GPIO pins on your Rpi to use to control the relay, connect both of them to your chosen GPIO pins along with a ground pin. Then if you wish you can add a physical momentary switch to a 3rd GPIO pin & another ground pin. Then mount it somewhere of your choice on your printer. This button will act as an instant on button & re-power the printer with a single push, norammly you have to manually switch both pins on yourself but now Moonraker will now activate both pins at the same time for you! Magic!
+
+## Setup
+
+Then you need to SSH into your pi & run:
 ```
 sudo nano /boot/config.txt
 ```
@@ -123,6 +129,14 @@ Trust me it is very annoying if you don’t do this!
 
 You will then need to modify your `Moonraker.conf` file by adding these…
 ```
+[button PowerUp]
+type: gpio
+pin: gpio21 # Example GPIO pin, you can choose your own here
+minimum_event_time: .05
+on_press:
+  {% do call_method("machine.device_power.post_device", device="Reset Power", action="on") %}
+  {% do call_method("machine.device_power.post_device", device="Printer Power", action="on") %}
+
 [power Printer Power]
 type:gpio
 pin:gpio16 # Example GPIO pin, you can choose your own here
@@ -142,7 +156,7 @@ restart_klipper_when_powered: True
 restart_delay: 2
 Timer:2
 ```
-You need these two pins as the BTT relay firmware requires a reset command while the `PSon` pin is high. If this is not the case & the `PSon` pin is low (off) & you hit reset the relay power up but trip out again after 8 seconds. This is normal. The `PSon` pin must be high (on) when the reset is pressed.
+You need these two pins as the BTT relay firmware requires a reset command while the `PSon` pin is high. If this is not the case & the `PSon` pin is low (off) & you hit reset the relay power up but trip out again after 8 seconds. This is normal. The `PSon` pin must be high (on) when the reset is pressed. The PowerUp physical button will activate both GPIO pins together when pushed meaning you only need a single push of the physical button to control both pins & re-power the printer instanly.
 
 After that add this macro to your `macros.cfg`
 ```
@@ -238,7 +252,20 @@ You can also add your chamber temp to the menubar in KlipperScreen, this to your
 titlebar_items: chamber
 ```
 
+## Extra Bonus...
+As an added bonus you can add a second physical button to a 4th GPIO pin to use as a physical Emergency Stop button!
+
+```
+[button estop]
+type: gpio
+pin: gpio26 # Example GPIO pin, you can choose your own here
+on_press:
+  {% do call_method("printer.emergency_stop") %}
+```
+
 ## Fin...
 If you made it to the end here congrats! 
 
 I hope this macro pack makes a nice difference to your printing life, dont forget, if you feel its valuable enough to use please consider hitting that "sponser this project" button & buying me a beer/coffee. Its always very much appreciated. Thank you & happy printing!!
+
+
