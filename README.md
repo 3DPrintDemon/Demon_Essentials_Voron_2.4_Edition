@@ -133,7 +133,7 @@ You will then need to modify your `Moonraker.conf` file by adding these…
 ```
 [button PowerUp]
 type: gpio
-pin: gpio21 # Example GPIO pin, you can choose your own here
+pin: ^gpio21 # Example GPIO pin, you can choose your own here
 minimum_event_time: .05
 on_press:
   {% do call_method("machine.device_power.post_device", device="Reset Power", action="on") %}
