@@ -110,7 +110,7 @@ This link is far more helpful!
 
 - https://www.youtube.com/watch?v=5wJff-hY90s
 
-You will need ensure that you have set your instance to be able to control your Pi’s GPIO pins as mentioned previously in this document. You then need to choose which 2 GPIO pins on your Rpi to use to control the relay, connect both of them to your chosen GPIO pins along with a ground pin. Then if you wish you can add a physical momentary switch to a 3rd GPIO pin & another ground pin. Then mount it somewhere of your choice on your printer. This button will act as an instant on button & re-power the printer with a single push, norammly you have to manually switch both pins on yourself but now Moonraker will now activate both pins at the same time for you! Magic!
+You will need ensure that you have set your instance to be able to control your Pi’s GPIO pins as mentioned previously in this document. You then need to choose which 2 GPIO pins on your Rpi to use to control the relay, connect both of them to your chosen GPIO pins along with a single ground pin to the PSon plug on the relay board. Then if you wish you can add a physical momentary switch to a 3rd GPIO pin & another ground pin. Then mount it somewhere of your choice on your printer. This button will act as an instant on button & re-power the printer with a single push, norammly you have to manually switch both pins on yourself but now Moonraker will now activate both pins at the same time for you! Magic!
 
 ## Setup
 
