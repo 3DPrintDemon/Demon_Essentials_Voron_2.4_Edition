@@ -144,7 +144,7 @@ type:gpio
 pin:gpio16 # Example GPIO pin, you can choose your own here
 initial_state:on
 off_when_shutdown: True
-locked_while_printing: True
+locked_while_printing: False
 restart_klipper_when_powered: False
 # restart_delay: 2
 bound_services:
