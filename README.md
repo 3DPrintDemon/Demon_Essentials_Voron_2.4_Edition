@@ -142,6 +142,7 @@ on_press:
 [power Printer Power]
 type:gpio
 pin:gpio16 # Example GPIO pin, you can choose your own here
+on_when_job_queued: True
 initial_state:on
 off_when_shutdown: True
 locked_while_printing: False
@@ -152,6 +153,7 @@ bound_services:
 [power Reset Power]
 type:gpio
 pin:gpio12 # Example GPIO pin, you can choose your own here
+on_when_job_queued: True
 locked_while_printing: True
 initial_state:off
 restart_klipper_when_powered: True
