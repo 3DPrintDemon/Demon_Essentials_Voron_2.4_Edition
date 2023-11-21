@@ -2,6 +2,9 @@
 # WELCOME TO 3DPrintDemon 
 
 # THE DEVILISHLY GOOD “DEMON ADAPTIVE VORON 2.4 (DAV) MACRO PACK”!!
+
+# NEW VERSION RELEASE CLICK GREEN LATEST RELEASE BUTTON!!!
+
 ## Made to make your printing life easier & your printer SMARTER!
 ### I hope you enjoy these automatic & highly adaptive macros! 
 A lot of time, testing, love & coffee has been poured into them!
