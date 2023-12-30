@@ -7,7 +7,7 @@
 # NEW VERSION RELEASE CLICK GREEN LATEST RELEASE BUTTON!!!
 
 ## Made to make your printing life easier & your printer SMARTER!
-### I hope you enjoy these automatic & highly adaptive macros! 
+### I hope you enjoy these automatic & highly adaptive macros! Don't forget if you like & use this project you can buy me a beer/coffee to say thanks. https://ko-fi.com/3dprintdemon
 A lot of time, testing, love & coffee has been poured into them!
 If you feel you’d like to support my efforts & help to enable me to continue sharing my ideas please consider buying me a beer/coffee at the provided “Sponser this project” link. Thanks!
 
