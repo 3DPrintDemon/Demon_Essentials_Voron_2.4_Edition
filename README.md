@@ -121,7 +121,7 @@ If this is the case do not `[include]` the `clean_load.cfg` macros without the n
 
 # INSTALL
 
-Copy the files here into a folder called `Demon_KLIPPER_Essentials` in your config folder on your printer. 
+Copy the files here into a folder called `Demon_Essentials` in your config folder on your printer. 
 
 Then, paste into your printer.cfg
 ```
