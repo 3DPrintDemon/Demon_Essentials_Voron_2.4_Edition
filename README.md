@@ -2,14 +2,41 @@
 
 # WELCOME TO 3DPrintDemon 
 
-# THE DEVILISHLY GOOD “Demon_Essentials_Voron_2.4_Edition”!!
+# THE DEVILISHLY GOOD “Demon_Essentials_Voron_2.4_Edition”!! Huge re-write many new features added & improved!
 
-# NEW VERSION RELEASE CLICK GREEN LATEST RELEASE BUTTON!!!
 
 ## Made to make your printing life easier & your printer SMARTER!
 ### I hope you enjoy these automatic & highly adaptive macros! Don't forget if you like & use this project you can buy me a beer/coffee to say thanks. https://ko-fi.com/3dprintdemon
 A lot of time, testing, love & coffee has been poured into them!
-If you feel you’d like to support my efforts & help to enable me to continue sharing my ideas please consider buying me a beer/coffee at the provided “Sponser this project” link. Thanks!
+If you feel you’d like to support my efforts & help to enable me to continue sharing my ideas please consider buying me a beer/coffee at the provided “Sponsor this project” link. Thanks!
+
+### This macro relies on you setting the correct filament type in your slicer! BE SURE YOU DO THIS!
+
+
+### NEW! Adaptive Pressure Advance Mode! - APA - ORCA SLICER ONLY
+
+- Why have only 1 single setting for Pressure Advance trying to work across the whole print when you can have 6!!
+
+- 6 settings per filament, 30 in total!
+
+- Each setting is automatically selected by filament for different types of extrusions during the print.
+
+- Settings for Perimeter, External Perimeter, Internal Infill, Solid Infill, Top Solid Infill, & filament default.
+
+- Print tuning towers for the speed of each extrusion type & apply them to the Adaptive Pressure Advance (APA) modifiers!
+
+- Disable or enable individual modifiers, you don't have use them all, use any number in any combination!
+
+- Or disable modifiers by filament or the whole module at once!
+
+- All settings in one easy to edit place, no need to edit macro code!
+
+- Verbose mode, read back all APA commands to the console!
+
+
+### NEW! Mesh Auto Builder!
+
+- Auto build all 5 meshes at different temperatures with included heat soak waits & message prompts! Inspired by a community contribution from Karl L! Thank you for sharing!
 
 ## Included macros:
 
@@ -85,6 +112,42 @@ These additional macros are prerequisites:
 Also the `PRINT_START` macro is intended for use on a printer that has been fitted with the above nozzle scrubber model. 
 You can if you wish disable this functionality but you will have to manually go through the macro & comment out all the `CLEAN_NOZZLE` calls.
 If this is the case do not `[include]` the `clean_load.cfg` macros without the nozzle scrubber installed on your machine.
+
+****************************************************************************************************************************
+# IF YOU RAN V1.0-V2.2 BE SURE TO UPDATE YOUR SLICER'S START GCODE AS PER V2.3 FILE OR NEW FEATURES WONT WORK!
+****************************************************************************************************************************
+
+
+# INSTALL
+
+Copy the files here into a folder called `Demon_KLIPPER_Essentials` in your config folder on your printer. 
+
+Then, paste into your printer.cfg
+```
+[include ./Demon_Essentials/*.cfg]
+```
+
+This will include all files in a folder called Demon_KLIPPER_Essentials in your `~/config` folder.
+
+Or you can use...
+
+```
+cd /home/pi/printer_data/config
+```
+NOTE: the above command is for a real Raspberry Pi, if you're using a cloned system that "/pi" folder will change to `mks` or `btt` or similar.
+
+```
+git clone https://github.com/3DPrintDemon/Demon_Essentials_Voron_2.4_Edition.git
+```
+
+Then, paste into your printer.cfg
+```
+[include ./Demon_Essentials/*.cfg]
+```
+
+This will bring these files into your system, be sure to comment out & NOT delete your current START & END PRINT Macros just yet!
+
+# Additional Configuration
 
 ## Auto Shutdown Moonraker Power Device
 
@@ -277,3 +340,16 @@ If you made it to the end here congrats!
 I hope this macro pack makes a nice difference to your printing life, dont forget, if you feel its valuable enough to use please consider hitting that "sponser this project" button & buying me a beer/coffee. Its always very much appreciated. Thank you & happy printing!!
 
 [<img width="171" alt="kofi_s_tag_dark" src="https://github.com/3DPrintDemon/Demon_KLIPPER_Essentials/assets/122202359/6538fcbf-b866-4e33-81c6-f9c95428bca4">](https://ko-fi.com/3dprintdemon)
+
+# WANT MORE...??
+Whats that I hear you cry, you want more?! Ok I got you covered!
+
+How about fully automated power on/off control with auto cool down & shutdown after a print finishes?! Plus have full control even after Klipper is in shutdown! What is this black magic?!!!
+
+Find out here!
+
+https://github.com/3DPrintDemon/BTT-Relay-v1.2-Moonraker_INSTANT_Power-On-Button
+
+If thats not enough how about creating your very own online auto updating backup of all your config files here on Github in your own private repo?!
+
+https://github.com/3DPrintDemon/Auto_Backup_Your_Klipper_Printer
