@@ -2,10 +2,11 @@
 
 # WELCOME TO 3DPrintDemon 
 
-# THE DEVILISHLY GOOD “Demon_Essentials_Voron_2.4_Edition”!! Huge re-write many new features added & improved!
+# THE DEVILISHLY GOOD “Demon_Essentials_Voron_2.4_Edition”!! 
+## New version re-written with many new features added & improved!
 
 
-## Made to make your printing life easier & your printer SMARTER!
+### Made to make your printing life easier & your printer SMARTER!
 ### I hope you enjoy these automatic & highly adaptive macros! Don't forget if you like & use this project you can buy me a beer/coffee to say thanks. https://ko-fi.com/3dprintdemon
 A lot of time, testing, love & coffee has been poured into them!
 If you feel you’d like to support my efforts & help to enable me to continue sharing my ideas please consider buying me a beer/coffee at the provided “Sponsor this project” link. Thanks!
