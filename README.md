@@ -115,7 +115,7 @@ You can if you wish disable this functionality but you will have to manually go 
 If this is the case do not `[include]` the `clean_load.cfg` macros without the nozzle scrubber installed on your machine.
 
 ****************************************************************************************************************************
-# IF YOU RAN V1.0-V2.2 BE SURE TO UPDATE YOUR SLICER'S START GCODE AS PER V2.3 FILE OR NEW FEATURES WONT WORK!
+# IF YOU RAN V1.0-V2.3 BE SURE TO UPDATE YOUR SLICER'S START GCODE AS PER V2.5 FILE OR NEW FEATURES WONT WORK!
 ****************************************************************************************************************************
 
 
