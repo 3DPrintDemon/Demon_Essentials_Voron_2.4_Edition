@@ -125,7 +125,7 @@ Copy the files here into a folder called `Demon_Essentials` in your config folde
 
 Then, paste into your printer.cfg
 ```
-[include ./Demon_Essentials/*.cfg]
+[include ./Demon_Essentials_Voron_2.4_Edition/*.cfg]
 ```
 
 This will include all files in a folder called Demon_KLIPPER_Essentials in your `~/config` folder.
@@ -143,7 +143,7 @@ git clone https://github.com/3DPrintDemon/Demon_Essentials_Voron_2.4_Edition.git
 
 Then, paste into your printer.cfg
 ```
-[include ./Demon_Essentials/*.cfg]
+[include ./Demon_Essentials_Voron_2.4_Edition/*.cfg]
 ```
 
 This will bring these files into your system, be sure to comment out & NOT delete your current START & END PRINT Macros just yet!
