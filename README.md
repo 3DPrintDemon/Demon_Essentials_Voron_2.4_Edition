@@ -351,6 +351,10 @@ Find out here!
 
 https://github.com/3DPrintDemon/BTT-Relay-v1.2-Moonraker_INSTANT_Power-On-Button
 
+Or maybe you're using Klicky Probe & sensorless homing & you want an AUTO E STOP system so that if your nozzle misses your endstop switch the printer knows there's a problem!
+
+https://github.com/3DPrintDemon/Voron_2.4_AES_System_Auto_Emergency_Stop_For_Klicky_Probe
+
 If thats not enough how about creating your very own online auto updating backup of all your config files here on Github in your own private repo?!
 
 https://github.com/3DPrintDemon/Auto_Backup_Your_Klipper_Printer
