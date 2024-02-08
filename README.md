@@ -15,7 +15,7 @@ If you feel you’d like to support my efforts & help to enable me to continue s
 
 ### NEW! Now includes the Demon Bed Fans Monitor!
 - Smart & fully adaptive Bed Fans control system!
-- Full instructions available here: https://github.com/3DPrintDemon/Demon-Smart-Bed-Fans-Monitor-System-For-Voron-2.4-Chamber-Circulation-
+- Full instructions available here: https://github.com/3DPrintDemon/Demon-Smart-Bed-Fans-Monitor-System-For-Voron-2.4-Chamber-Circulation
 
 ### NEW! The Demon AES System! 
 - Save your printer from damage from homing errors when using a Z Endstop switch
