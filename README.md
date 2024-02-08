@@ -13,6 +13,19 @@ If you feel you’d like to support my efforts & help to enable me to continue s
 
 ### This macro relies on you setting the correct filament type in your slicer! BE SURE YOU DO THIS!
 
+### NEW! Now includes the Demon Bed Fans Monitor!
+- Smart & fully adaptive Bed Fans control system!
+- Full instructions available here:
+
+### NEW! The Demon AES System! 
+- Save your printer from damage from homing errors when using a Z Endstop switch
+- Full instructions avaiable here: https://github.com/3DPrintDemon/Voron_2.4_AES_System_Auto_Emergency_Stop_For_Z_Endstop_Switch
+
+### NEW! Start Macro handling for Smart Filament Sensor Encoder
+- Disables the sensor until the macro completes
+
+### NEW! Support for Klipper's `ADAPTIVE_MESH` system in the latest Klipper update
+- NOTE you need the latest version of Klipper to use this!
 
 ### NEW! Adaptive Pressure Advance Mode! - APA - ORCA SLICER ONLY
 
@@ -115,7 +128,7 @@ You can if you wish disable this functionality but you will have to manually go 
 If this is the case do not `[include]` the `clean_load.cfg` macros without the nozzle scrubber installed on your machine.
 
 ****************************************************************************************************************************
-# IF YOU RAN V1.0-V2.3 BE SURE TO UPDATE YOUR SLICER'S START GCODE AS PER V2.5 FILE OR NEW FEATURES WONT WORK!
+# IF YOU RAN V1.0-V2.5 BE SURE TO UPDATE YOUR SLICER'S START GCODE AS PER V2.6 FILE OR NEW FEATURES WONT WORK!
 ****************************************************************************************************************************
 
 
@@ -334,6 +347,41 @@ pin: gpio26 # Example GPIO pin, you can choose your own here
 on_press:
   {% do call_method("printer.emergency_stop") %}
 ```
+
+## v2.6! Updated to include the new integrated KLIPPER Adaptive Mesh option. There is no longer any need for a separate KAMP install.
+
+For the Adaptive Mesh feature to work you must have:
+- The latest version of Klipper!*
+- Enabled your Slicer for `Exclude Objects`
+- Added the `Exclude Objects` section to your `moonraker.conf` file
+- Added the `Exclude Objects`section to your `printer.cfg` file
+
+Add this to your `moonraker.conf` file:
+```
+[file_manager]
+enable_object_processing: true
+```
+
+Add this to your `printer.cfg` file:
+```
+[exclude_object]
+```
+
+Save & restart!
+
+## To use adaptive meshing all files MUST have been sliced with `Exclude Objects` active.
+## IF NOT YOU WILL RECEIVE THE FOLLOWING ERRORS!!
+
+If you use ORCA SLICER:
+
+`Error evaluating 'gcode_macro PRINT_START:gcode': gcode.CommandError: This error is caused by the sliced file not having EXCLUDE_OBJECT enabled! Please disable Adaptive_Meshing in the user_settings.cfg or re-slice the file with it enabled and restart the print!`
+
+If you use another slicer:
+
+`Internal error on command:"PRINT_START"`
+
+`Internal error on command:"BED_MESH_CALIBRATE"`
+
 
 ## Fin...
 If you made it to the end here congrats! 
