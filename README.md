@@ -279,7 +279,7 @@ If you have an encoder based sensor like the BTT Smart Sensor add this:
 ```
 [filament_motion_sensor encoder_sensor]
  switch_pin: ^### <<<<<< insert board pin
- detection_length: 9 #10 #2.88
+ detection_length: 9
  extruder: extruder
  pause_on_runout: True
  insert_gcode:
