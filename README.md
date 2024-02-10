@@ -259,45 +259,14 @@ This will give you full control of your power relay unit via the GUI Switch & th
 
 ## Chamber Monitoring & Fan Control
 
-Then once you’ve done that you’ll need to add a Chamber thermistor to your machine if you haven’t already.
-To set this single thermistor to be used as both a fan controller for cooling the Chamber & a regular sensor for the system to use add these sections to your printer.cfg, adding the same board pin & the sensor type your’e using.
+To get the most from these macros you’ll need to add a Chamber thermistor to your machine if you haven’t already & a Chamber exhaust fan. 
 
-**NOTE: if you’re using a single thermistor these should be the same for all 3 sections below. If you have 2 thermistors you can omit the `[duplicate_pin_override]` section and use a different thermistor for each section. But just one is fine.**
-```
-# This single pin will be used by both [temperature_fan chamber] as well as [temperature_sensor Chamber_Temp]
-[duplicate_pin_override]
-pins: ### <<<<<< Insert Your Chamber temp sensor pin
-
-# This is used for the pla & asa_chamber_temp values in the PRINT_START macro & can be enabled & disabled in the _START_VARIABLES marco
-[temperature_fan chamber]
-pin: ### <<<<<< Insert board pin for sensor
-max_power: 1.0
-shutdown_speed: 0.0
-kick_start_time: 5.0
-cycle_time:0.01
-off_below:0.1
-sensor_type: ### <<<<<< Insert thermistor type
-sensor_pin: PA3
-min_temp: 5
-max_temp: 70
-target_temp: 40
-control: watermark
-gcode_id: C 
-
-# This is used by the heat_soak_threshold variable in the PRINT_START macro & can be enabled & disabled in the _START_VARIABLES marco
-[temperature_sensor Chamber_Temp]
-sensor_type: ### <<<<<< Insert thermistor type
-sensor_pin: ### <<<<<< Insert board pin for sensor
-min_temp: 5
-max_temp: 70
-gcode_id: CH
-```
 
 ## Filament Sensor
 If you have or are going to install a filament sensor this must be added to your `printer.cfg` file to run the filament sensor. The filament runout check in the `PRINT_START` macro can then be enabled & disabled in the `_START_VARIABLES` marco if you dont have one or dont want to perform the check at the start of the print.
 ```
 [filament_switch_sensor filament_sensor]
-switch_pin: ### <<<<<< Insert board pin for sensor
+switch_pin: ^### <<<<<< Insert board pin for sensor
 pause_on_runout: True
 insert_gcode:
     { action_respond_info("Insert Detected") }
@@ -305,6 +274,25 @@ runout_gcode:
     { action_respond_info("Runout Detected") }
 pause_delay: 0.5
 ```
+
+If you have an encoder based sensor like the BTT Smart Sensor add this:
+```
+[filament_motion_sensor encoder_sensor]
+ switch_pin: ^### <<<<<< insert board pin
+ detection_length: 9 #10 #2.88
+ extruder: extruder
+ pause_on_runout: True
+ insert_gcode:
+     { action_respond_info("Filament Encoder is Running") }
+ runout_gcode:
+     { action_respond_info("Filament Encoder Stall Detected") }
+
+ [delayed_gcode encoder_sensor]
+ initial_duration: 1
+ gcode:
+    SET_FILAMENT_SENSOR SENSOR=encoder_sensor ENABLE=0
+```
+
 ## Modifying KlipperScreen Menus For New Features
 To add main screen menu buttons to KlipperScreen for your new Nozzle cleaning functions add these lines to your `KlipperScreen.conf` file:
 ```
