@@ -6,7 +6,7 @@
 #
 # THIS REPO IS NOW SUPERSEEDED BY A NEW UNIFIED VERSION!
 # PLEASE USE THIS NEW VERISON 
-# https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified
+https://github.com/3DPrintDemon/Demon_Klipper_Essentials_Unified
 #
 #
 #
